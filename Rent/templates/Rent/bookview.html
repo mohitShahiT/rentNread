@@ -1,0 +1,135 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+    <title>Bookspage</title>
+    <link rel="stylesheet" href="{% static 'Style/bookview.css' %}">
+    <script src="{% static 'Script/books.js' %}" defer></script>
+    <script src="{% static 'Script/cart.js' %}" defer></script>
+    {% endblock head %}
+{% block content %}
+    <div class="container-fluid">
+    
+    <div class="containerone">
+        <div class="blockone">
+            <div class="cardone">
+                <img src="/static/images{{book.book_cover.url}}" alt="error loading" width="300px">
+            </div>
+        </div>
+
+        <div class="blocktwo">
+            <div class="nameauthor">
+                <span class="bookname"><h3>{{book.title}}</h3></span>
+                <span class="author">{{book.author}}</span>
+            </div>
+            <div class="rating">
+                <ul>
+                    {% for i in book.totalStar%}
+                    <li><img src="{% static 'image/filled-star.png' %}"></li>
+                    {%endfor%}
+                    {%for i in book.remainingStar%}
+                    <li><img src="{% static 'image/blank-star.png' %}"></li>
+                    {%endfor%}
+                </ul>
+            </div>
+            <div class="typenid">
+                <div class="type">
+
+                </div>
+                <div class="id">
+
+                </div>
+            </div>
+            <div class="separateline">
+                
+            </div>
+            <div class="synopsisdiv">
+                <div class="title"><h3>Description</h3>
+                </div>
+                <div class="about">
+                    <span>{{book.description}} </span>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="blockthree">
+            <div class="cardtwo">
+                <div class="pricetag">
+                    <span><h3>Rs. {{book.price}}</h3></span>
+                </div>
+                <div class="delivery"><span>Delivery to the major cities inside Nepal.</span>
+                </div>
+                <div class="cartdiv">
+                    <div class="add-to-cart-small update-cart {% if book.in_cart %}remove-from-cart{%endif%} {% if not book.available %} not-available{% endif %}" data-book={{book.id}} data-action="{% if book.in_cart %}remove{% else %}add{%endif%}" data-cart-btn><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</div>          
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    <div class="containerthree">
+        <div class="review">
+            <span><h3>REVIEW</h3></span>
+        </div>
+        <div class="titlereview">
+            <h4>Write you review here:</h4></span>
+        </div>
+        <form class="postdiv" action="/bookview/{{book.id}}" method="POST">
+            {% csrf_token %}
+            <textarea placeholder="Write Here"  cols="59" rows="9" style="margin-left:6px"; name="comment"></textarea>
+            {% if request.user.is_authenticated %}
+            <button class="reviewpostbtn">POST</button>
+        {% else %}
+        <p><a href="{% url 'login' %}">Login to post review </a> </p>
+        {% endif %}
+        </form>
+    </div>
+
+    <div class="containertwo">
+        <div class="related">
+            <span><h3>You might also like</h3></span>
+        </div>
+        <div class="bookdiv">
+            {% for book in related %}
+                {% if book %}
+                <div class = "book-card-wrapper" title="{{book.title}}">
+                    <a href="/bookview/{{book.id}}" class="product-link" >
+                        <div class="book-card-small">
+                            <img src="/static/images{{book.book_cover.url}}" class="book-image-small">
+                            <div class ="book-content">
+                                <div class = "title-small">
+                                    {{book.title|truncatechars:15}}
+                                </div>
+                                <div class = "description-small">
+                                    {{book.description|truncatechars:45}}
+                                </div>
+                                <div class = "author-small">{{book.author}}</div>
+                                <ul class = "ratings-small">
+                                    {% for i in book.totalStar%}
+                                    <li><img src="{% static 'image/filled-star.png' %}"></li>
+                                    {%endfor%}
+                                    {%for i in book.remainingStar%}
+                                    <li><img src="{% static 'image/blank-star.png' %}"></li>
+                                    {%endfor%}
+                                </ul>
+                                <div class = "price-small">Rs. {{book.price}}</div>
+                            </div>
+                        </a>  
+                            {% comment %} <div class="add-to-cart-small update-cart{% if not book.available %} not-available{% endif %}" disabled data-book={{book.id}} data-action='add'>
+                                <i class="fa-solid fa-cart-shopping"></i>ADD TO CART
+                            </div> {% endcomment %}
+                            {% comment %} <div class="add-to-cart-small update-cart {% if book.in_cart %}remove-from-cart{%endif%} {% if not book.available %} not-available{% endif %}" data-book={{book.id}} data-action="{% if book.in_cart %}remove{% else %}add{%endif%}" data-cart-btn><i class="fa-solid fa-cart-shopping"></i>ADD TO CART</div>{% endcomment %}
+
+                        </div>
+                    
+                </div>   
+                {% endif %}
+                {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}

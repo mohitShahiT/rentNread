@@ -1,0 +1,85 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block head %}
+
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'styles/profile.css' %}" />
+{%endblock head%}
+
+{%block content%}
+
+    <div class="container-fluid">
+        <div class="container-two">
+            <div class="sidebar">
+               <div class="sidebar-top">
+                   <img src="{% static 'images/ananymous.png' %}" alt="error loading">
+                   <span class="name">{{user.first_name}} {{user.last_name}}</span>
+               </div>
+                <div class="sidebar-center">
+                    <ul class="list">
+                        <a href="#" class="sub-menu-link">
+                            <img src="{% static 'images/edit.png' %}" alt="">
+                            <p>Edit profile</p>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="{% static 'images/order.png' %}" alt="">
+                            <p>My Orders</p>
+                        </a>
+                        <a href="#" class="sub-menu-link">
+                            <img src="{% static 'images/testimonial.png' %}" alt="">
+                            <p>My Reviews</p>
+                        </a>
+                   </ul>
+               </div>
+               <div class="sidebar-bottom">
+                <ul class="list">
+                    <a href="{% url 'logout' %}" class="sub-menu-link">
+                        <img src="{% static 'images/log-out.png' %}" alt="">
+                        <p>Logout</p>
+                    </a>
+                    <a href="#" class="sub-menu-link">
+                        <img src="{% static 'images/delete-user.png' %}" alt="">
+                        <p>Delete Account</p>
+                    </a>
+               </div>
+           </div>
+           <div class="rightside-portion">
+               <div class="pointdiv">
+                   <h3><span class="point">Point Details</span></h3>
+                   <span class="mypoint">My Points:</span>
+               </div>    
+               <div class="cardone">
+                    <div class="pointdetail">
+                        <img src="{% static 'images/token.png' %}" alt="">
+                        <span class="pointtxt">123</span>
+                    </div>            
+                </div>
+                <div class="infodiv">
+                    <h3><span class="account">Account Details</span></h3>
+                </div>
+                <div class="cardtwo">
+                    <div class="emaildiv">
+                        <span class="email">Email:</span> 
+                        <span class="emailtxt">{{user.email}}</span>  
+                        <hr>                  
+                    </div>
+                    <div class="firstnamediv">
+                        <span class="first">First Name:</span>  
+                        <span class="firsttxt">{{user.first_name}}</span>   
+                        <hr>                
+                    </div>
+                    <div class="lastnamediv">
+                        <span class="last">Last Name:</span>
+                        <span class="lasttxt">{{user.last_name}}</span> 
+                        <hr>                      
+                    </div>
+                    <div class="usernamediv">
+                        <span class="username">User Name:</span>
+                        <span class="usernametxt">{{user.username}}</span>                     
+                    </div>
+                </div>
+           </div>
+        </div>    
+    </div>
+
+{%endblock content%}

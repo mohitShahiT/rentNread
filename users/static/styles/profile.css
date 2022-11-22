@@ -1,0 +1,306 @@
+.user-pic{
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 30px;
+}
+.sub-menu-wrap{
+  position: absolute;
+  top:11%;
+  right:0.1%;
+  width:290px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.2s;
+}
+.sub-menu-wrap.open-menu{
+  max-height: 550px;
+}
+.sub-menu{
+  background: white;
+  padding: 20px;
+  margin: 7px;
+}
+.user-info{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.user-info h3{
+  font-weight: 400;
+  font-size: 22px;
+  
+}
+
+.user-info img{
+  width: 60px;
+  border-radius:50%;
+  margin-right: 15px;
+}
+.sub-menu hr {
+  border:0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin:15px 0 10px;
+}
+.sub-menu-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+.sub-menu-link p{
+  width: 100%;
+}
+.sub-menu-link img{
+  width: 30px;
+  /* background-color: #e5e5e5; */
+  height: 50%;
+  padding: 8px;
+  margin-right: 15px;
+}
+.sub-menu-link span{
+  font-size:18px;
+  transition: transform 0.5s;
+}
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}.sub-menu-link:hover p{
+  font-weight: 600;
+}
+.loginBtn{
+    width: 75px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    font-size: 100%;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.loginBtn:hover{
+    background-color: white;
+    color:black;
+    transition: all 0.8s;
+}
+.container-two{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.4%;
+    margin-bottom: 0.4%;
+}
+.rightside-portion{
+  width: 100%;
+  background-color: whitesmoke;
+  margin-left:0.5%;
+}
+.cardone{
+  width: 87%;
+  height: 70px;
+  border: 1px darkgray;
+  border-radius: 5px;
+  align-items: center;
+  padding: 10px;
+  margin-left: 5%;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px #88888867;
+  
+}
+.point {
+  margin-left: 5%;
+  font-size: 22px;
+  font-weight: 500;
+}
+.account {
+  margin-left: 5%;
+  font-size: 22px;
+  font-weight: 500;
+}
+.mypoint{
+  font-size: 18px;
+  color: crimson;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.cardtwo{
+  width: 87%;
+  height: 310px;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 15px;
+  margin-left: 5%;
+  margin-top: 1%;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px #88888867;
+}
+.infodiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 1%;
+}
+.personal{
+  margin-top: 4px;
+}
+.emaildiv{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1%;
+}
+.emailtxt{
+  width: 70%;
+  height: 25px;
+  margin-bottom: 10px;
+}
+.firstnamediv{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+.firsttxt{
+  width: 70%;
+  height: 25px;
+  margin-bottom: 10px;
+}
+.lastnamediv{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+.lasttxt{
+  width: 70%;
+  height: 25px;
+  margin-bottom: 10px;
+}
+.usernamediv{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+.usernametxt{
+  width: 70%;
+  height: 25px;
+  margin-bottom: 10px;
+}
+.pointdiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.pointdetail{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 37%;
+}
+.pointdetail img{
+  width: 60px;
+  height: 60%;
+  padding: 8px;
+
+}
+.pointtxt{
+  margin-left: 15%;
+  font-size: 30px;
+}
+.sidebar {
+  width: 350px;
+  height: 85vh;
+  background-color:azure;
+  /* background-color: aliceblue; */
+  color:darkslategrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 1.5px 3px 1px #88888867;
+}
+.sidebar .sidebar-top img{
+  width: 100px;
+  height: 50%;
+}
+.sidebar-top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+ 
+}
+  .sidebar-top,
+  .sidebar-center,
+  .sidebar-bottom {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    border-bottom: 1px solid #4b4b4b;
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+  .sidebar-center .list-item{
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+  }
+  .sidebar-center {
+    padding: 0;
+  }
+  
+  .sidebar-bottom {
+    justify-content: center;
+    border: none;
+  }
+  
+  .logo {
+    font-size: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+    padding-left: 10px;
+  }
+  
+  .brand {
+    margin-top: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .list-item {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .list-item-icon {
+    width: 30px;
+    font-size: 20px;
+  }
+  
+  .list-item.active,
+  .list-item:hover {
+    background-color:brown;
+    color: white;
+  }
+
+
+  .name {
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+/* h3{
+    text-align: center;
+} */
+
+

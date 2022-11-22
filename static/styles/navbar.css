@@ -1,0 +1,162 @@
+nav {
+  background-color: white;
+  padding: 5px 20px;
+  height: 65px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1.5px 3px 1px #88888867;
+  
+}
+
+.navbarLeft {
+  display: flex;
+  align-items: center;
+  width: 5%;
+}
+
+.navbarLeft img {
+    width: 50px;
+    height: 50px;
+}
+
+.navbarMiddle {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
+.navList {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+
+}
+
+.navList li a{
+    cursor: pointer;
+    color: black;
+}
+
+.navList li a:hover {
+    color: rgba(0, 0, 0, 0.448);
+    transition: all 0.2s;
+}
+
+.navbarMiddle ul li a{
+    text-decoration: none;
+}
+
+.user-pic{
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 30px;
+}
+.sub-menu-wrap{
+  position: absolute;
+  z-index: 10;
+  top:11%;
+  right:0.1%;
+  width:290px;
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.2s;
+}
+.sub-menu-wrap.open-menu{
+  max-height: 550px;
+}
+a{
+  color: inherit;
+}
+.user-info h3:hover{
+  color: #525252;
+}
+.sub-menu{
+  background: white;
+  padding: 20px;
+  margin: 7px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.user-info{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.user-info h3{
+  font-weight: 400;
+  font-size: 22px;
+  
+}
+
+.user-info img{
+  width: 60px;
+  border-radius:50%;
+  margin-right: 15px;
+}
+.sub-menu hr {
+  border:0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin:15px 0 10px;
+}
+.sub-menu-link{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #525252;
+  margin: 12px 0;
+}
+.sub-menu-link p{
+  width: 100%;
+}
+.sub-menu-link img{
+  width: 30px;
+  /* background-color: #e5e5e5; */
+  height: 50%;
+  padding: 8px;
+  margin-right: 15px;
+}
+.sub-menu-link span{
+  font-size:18px;
+  transition: transform 0.5s;
+}
+.sub-menu-link:hover span {
+  transform: translateX(5px);
+}.sub-menu-link:hover p{
+  font-weight: 600;
+}
+
+
+.user-cart{
+    width: 2rem;
+}
+
+.loginBtn,
+.signUpBtn{
+    padding: 8px 10px;
+    border: 1px solid black;
+    margin-left: 0.5rem;
+    background-color: black;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.loginBtn:hover,
+.signUpBtn:hover{
+    background-color: white;
+    color: black;
+    transition: all 0.1s ease-in-out;
+}
+
+
+
+

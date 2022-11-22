@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'Style/checkout.css' %}">
+    {% comment %} <script src="{% static 'Script/books.js' %}" defer></script> {% endcomment %}
+    <title>Check Out</title>
+{% endblock head%}
+
+{% block content %}
+<div class = "wrapper-checkout">
+    <div class = "checkout-containter">
+        <div class = "shipping-details-container">
+            <div class = "shipping-customer-details">
+                <form class="customer-details">
+                    <p>Customer Details</p>
+                    <div class="name-email">
+                        <input type="text" placeholder = "Name">
+                        <input type="email" placeholder = "Email">
+                        <input type="text" placeholder = "Phone number">
+                    </div>
+                    <p>Shipping Informations</p>
+                    <div class = "shipping-details">
+                        <input type= "text" placeholder="Province">
+                        <input type = "text" placeholder = "City">
+                        <input type="text" placeholder = "Area/Street">
+                    </div>
+                    <button type="submit">Continue</button>
+                </form>
+            </div>
+            <div class = "payment-options">
+                {%if items%}
+                <p>Payemnt Options</p>
+                <div class="payment-logos">
+                    <a href="#"><img class="esewa-logo" src="{% static 'image/esewa-logo.png' %}"></a>
+                    <a href="#"><img class="khalti-logo" src="{% static 'image/khalti-logo.png' %}"></a>
+                </div>
+                {%else%}
+                    <p class= "no-items"></p>
+                {%endif%}
+            </div>
+        </div>
+        <div class = "product-details-container">
+            <div class = "back-to-cart">
+                <a href = "{%url 'cart'%}"><div class="back-button"><i class="fa-solid fa-arrow-left"></i> Back to Cart</div></a>
+            </div>
+            <div class= "products">
+                <p>Order Summary</p>
+                <div class = "cart-table">
+                    {%if items%}
+                    <table>
+                        {% for item in items %}
+                            <tr onclick="window.location='/bookview/{{item.product.id}}';" title="{{item.product.title}}">
+                                <td><img class="book-cover" src="/static/images{{item.product.book_cover.url}}" alt="book-cover"></td>
+                                <td class="book-title">{{item.product.title|truncatechars:20}}</td>
+                                <td>Rs. {{item.product.price}}</td>
+                            </tr>
+                        {%endfor%}
+                    </table>
+                    {%else%}
+                        <p class = "no-items">No item in the cart.</p>
+                    {%endif%}
+                </div>
+                <div class = "product-total">
+                    <p class = "total-products">Items: {{order.getTotalItems}}</p> 
+                    <p class = "total-price">Price: {{order.getCartTotal}}</p>    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

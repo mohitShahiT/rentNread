@@ -1,0 +1,57 @@
+{% load static %}
+<header>
+    <div class="left">
+        <a href="{% url 'homepage' %}"><img src="{% static './image/applogo.png' %}" alt="Logo" class="logo"></a>
+    </div>
+    <div class="center">
+        <form class="search" method="get" action="/search">
+            {% comment %} <div class = "search-box">    {% endcomment %}
+                <input type="text" name="query" id="query" placeholder="📚Search Books Here ">
+                <img type="submit" class = "serach-icon" src="{% static 'images/icons/searchicon.png' %}">
+            {% comment %} </div> {% endcomment %}
+        </form>
+    </div>
+    {% if request.user.is_authenticated %}
+    <div class="right">
+
+        <a href = "{% url 'cart' %}"><img class = "user-cart" src = "{% static './images/cart.png' %}"></a>
+        <div class = "profile-image-btn">
+            <img src="{% static 'images/icons/accountpic.png' %}" alt="error loading" class="user-pic">
+        </div>
+        <div class="sub-menu-wrap" id="subMenu">
+            <div class="sub-menu">
+                <a href="{% url 'profile' %}" class="user-info">
+                    <img src="{% static 'images/icons/accountpic.png' %}" alt="">
+                    <h3>{{user.first_name}} {{user.last_name}}</h3>
+                </a>
+                <hr>
+                <a href="#" class="sub-menu-link">
+                    <img src="{% static 'images/icons/edit.png' %}" alt="">
+                    <p>Edit profile</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="{% static 'images/icons/order.png' %}" alt="">
+                    <p>My Orders</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <img src="{% static 'images/icons/testimonial.png' %}" alt="">
+                    <p>My Reviews</p>
+                    <span>></span>
+                </a>
+                <a href="{% url 'logout' %}" class="sub-menu-link">
+                    <img src="{% static 'images/icons/log-out.png' %}" alt="">
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+            </div>
+        </div>    
+    </div>
+    {%else%}
+    <div class = "right2">
+    <a href="{% url 'login' %}"><button class="loginBtn">LOGIN</button></a>
+    <a href="{% url 'register' %}"><button class="signUpBtn">SIGN UP</button></a>
+    </div>
+    {%endif%}
+</header>

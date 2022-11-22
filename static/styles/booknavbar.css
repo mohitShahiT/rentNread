@@ -1,0 +1,82 @@
+header {
+    background-color: white;
+    padding: 5px 20px;
+    height: 65px;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1.5px 3px 1px #88888867;
+} 
+
+
+.center {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    width: 5%;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.center .search {
+    width: 40%;
+    display: flex;
+    position: relative; 
+}
+
+header .center .search input[type=text] {
+    height: 100%;
+    width: 100%;
+    font-size: 1.2rem;
+    border: none;
+    padding: 5px 45px  5px 15px;
+    background-color: rgba(226, 225, 225, 0.705);
+    border-radius: 100px;
+}
+header .center .search input[type=text]:focus{
+    outline: 1px solid rgb(151, 150, 150);
+}
+.serach-icon{
+    margin-right: 10px;
+    width: 33px;
+    margin-top: 3px;
+    position: absolute;
+    right: 0;
+    opacity: 0.8;
+}
+
+
+.right {
+    display: flex;
+    flex-direction: row;
+    width: 15%;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.right .cart {
+    cursor: pointer;
+}
+
+
+.right .profile {
+    cursor: pointer;
+}
+
+.right2{
+    width: 15%;
+    display: flex;
+    gap: 0.2rem;
+}
